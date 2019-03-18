@@ -4,12 +4,6 @@ from typing import List
 from sklearn.metrics import accuracy_score
 
 
-def read_jsonl_lines(input_file: str) -> List[dict]:
-    with open(input_file) as f:
-        lines = f.readlines()
-        return [json.loads(l.strip()) for l in lines]
-
-
 def read_lines(input_file: str) -> List[str]:
     lines = []
     with open(input_file, "rb") as f:

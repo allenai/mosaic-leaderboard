@@ -10,14 +10,6 @@ def read_jsonl_lines(input_file: str) -> List[dict]:
         return [json.loads(l.strip()) for l in lines]
 
 
-def read_lines(input_file: str) -> List[str]:
-    lines = []
-    with open(input_file, "rb") as f:
-        for l in f:
-            lines.append(l.decode().strip())
-    return lines
-
-
 def main(args):
     input_file = args.input_file
     output_file = args.output_file
