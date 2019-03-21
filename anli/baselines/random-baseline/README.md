@@ -8,5 +8,5 @@ If you are building your own solver this example will show you how to parse the 
 To try out this random baseline, you must first download either the [train](https://storage.googleapis.com/ai2-alexandria/public/alpha-nli/train.jsonl) or [dev](https://storage.googleapis.com/ai2-alexandria/public/alpha-nli/valid.jsonl) split of the aNLI dataset.  Then you can run the random baseline with the following command.
 
 ```
-python random_baseline.py --input-file train.jsonl --output-file predictions.txt
+python random_baseline.py --input-file train.jsonl --output-file predictions.lst
 ```
