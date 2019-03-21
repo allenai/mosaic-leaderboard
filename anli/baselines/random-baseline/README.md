@@ -5,7 +5,7 @@ If you are building your own solver this example will show you how to parse the 
 
 ## Running this example locally
 
-To try out this random baseline, you must first download either the [train](https://storage.googleapis.com/ai2-alexandria/public/alpha-nli/train.jsonl) or [dev](https://storage.googleapis.com/ai2-alexandria/public/alpha-nli/valid.jsonl) split of the aNLI dataset and run.  Then you can run the random baseline with the following command.
+To try out this random baseline, you must first download either the [train](https://storage.googleapis.com/ai2-alexandria/public/alpha-nli/train.jsonl) or [dev](https://storage.googleapis.com/ai2-alexandria/public/alpha-nli/valid.jsonl) split of the aNLI dataset.  Then you can run the random baseline with the following command.
 
 ```
 python random_baseline.py --input_file train.jsonl --output_file predictions.txt
