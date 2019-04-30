@@ -16,35 +16,35 @@ def read_labels(labels_file: str) -> pd.DataFrame:
     return labels
 
 
-def score_submission(example_submission, test_labels):
-    assert example_submission.shape[0] == test_labels.shape[0]
+def score_submission(pred_labels, test_labels):
+    assert pred_labels.shape[0] == test_labels.shape[0]
 
     # score answers
-    answers = example_submission[['answer_0', 'answer_1', 'answer_2', 'answer_3']].values.argmax(1)
+    answers = pred_labels[['answer_0', 'answer_1', 'answer_2', 'answer_3']].values.argmax(1)
 
-    qa = np.mean((answers == test_labels['answer']))
+    qa_accuracy = np.mean((answers == test_labels['answer']))
 
-    print("Answer acc is {:.3f}".format(qa))
+    print("Answer acc is {:.3f}".format(qa_accuracy))
 
     # score rationales
-    rationales = example_submission[
+    rationales = pred_labels[
         [f'rationale_conditioned_on_a{i}_{j}' for i in range(4) for j in range(4)]].values.reshape(
         (-1, 4, 4))
 
     rationales_conditioned_on_gt = rationales[
         np.arange(rationales.shape[0]), test_labels['answer'].values].argmax(1)
 
-    qa2r = np.mean((rationales_conditioned_on_gt == test_labels['rationale']))
+    qa2r_accuracy = np.mean((rationales_conditioned_on_gt == test_labels['rationale']))
 
-    print("Rationale acc is {:.3f}".format(qa2r))
+    print("Rationale acc is {:.3f}".format(qa2r_accuracy))
 
     # Combine
     is_right = ((answers == test_labels['answer']) & (
                 rationales_conditioned_on_gt == test_labels['rationale']))
 
-    q2ar = np.mean(is_right)
-    print("Combined acc is {:.3f}".format(q2ar))
-    return qa, qa2r, q2ar
+    q2ar_accuracy = np.mean(is_right)
+    print("Combined acc is {:.3f}".format(q2ar_accuracy))
+    return qa_accuracy, qa2r_accuracy, q2ar_accuracy
 
 
 def main(labels_file, preds_file, metrics_output_file):
@@ -56,13 +56,13 @@ def main(labels_file, preds_file, metrics_output_file):
     pred_answers = pd.read_csv(preds_file)
 
     # Score predictions
-    qa, qa2r, q2ar = score_submission(pred_answers, gold_answers)
+    qa_accuracy, qa2r_accuracy, q2ar_accuracy = score_submission(pred_answers, gold_answers)
 
     # Write to file
     results = {
-        'accuracy_qa': qa,
-        'accuracy_qa2r': qa2r,
-        'accuracy_q2ar': q2ar
+        'accuracy_qa': qa_accuracy,
+        'accuracy_qa2r': qa2r_accuracy,
+        'accuracy_q2ar': q2ar_accuracy
     }
     with open(metrics_output_file, "w") as f:
         f.write(json.dumps(results))

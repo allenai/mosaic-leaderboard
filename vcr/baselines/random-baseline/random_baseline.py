@@ -24,6 +24,8 @@ def main(input_dir, output_file):
     qa_test_records = read_jsonl_lines(os.path.join(input_dir, 'qa.jsonl'))
     qar_test_records = read_jsonl_lines(os.path.join(input_dir, 'qar.jsonl'))
 
+    assert len(qa_test_records) == len(qar_test_records)
+
     # Make predictions for each example in the test set.
 
     rows = []
