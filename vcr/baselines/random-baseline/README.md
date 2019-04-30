@@ -8,5 +8,5 @@ If you are building your own solver this example will show you how to parse the 
 To try out this random baseline, you must first download either the [training](https://storage.googleapis.com/ai2-alexandria/public/vcr/train.zip) or [validation](https://storage.googleapis.com/ai2-alexandria/public/vcr/val.zip) split of the VCR dataset.  Then you can run the random baseline with the following command.
 
 ```
-python random_baseline.py --input-dir vcr/ --output-file predictions.lst
+python random_baseline.py --input-dir vcr/ --output-file predictions.csv
 ```
