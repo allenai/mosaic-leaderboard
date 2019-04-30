@@ -1,8 +1,8 @@
 import argparse
 import json
-from typing import List
-import random
 import os
+from typing import List
+
 import numpy as np
 
 
@@ -13,8 +13,8 @@ def read_jsonl_lines(input_file: str) -> List[dict]:
         return [json.loads(l.strip()) for l in lines]
 
 
-def rand_prob_vector(size=4):
-    v = np.random.uniform(0, 100, size=4)
+def rand_prob_vector(n=4):
+    v = np.random.uniform(0, 100, size=n)
     v = v / np.sum(v)
     return v
 
