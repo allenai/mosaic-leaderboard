@@ -8,6 +8,7 @@ WORKDIR /local
 RUN pip3.6 install scikit-learn pandas numpy
 
 COPY random_baseline.py random_baseline.py
+COPY run_model.sh run_model.sh
 
 RUN mkdir /results
 
