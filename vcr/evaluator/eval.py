@@ -47,16 +47,18 @@ def score_submission(example_submission, test_labels):
     return qa, qa2r, q2ar
 
 
-def main(args):
-    labels_file = args.labels_file
-    preds_file = args.preds_file
-    metrics_output_file = args.metrics_output_file
+def main(labels_file, preds_file, metrics_output_file):
 
+    # Read Labels
     gold_answers = read_labels(labels_file)
+
+    # Read Predictions
     pred_answers = pd.read_csv(preds_file)
 
+    # Score predictions
     qa, qa2r, q2ar = score_submission(pred_answers, gold_answers)
 
+    # Write to file
     results = {
         'accuracy_qa': qa,
         'accuracy_qa2r': qa2r,
@@ -69,7 +71,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Evaluate ANLI predictions')
+        description='Evaluate VCR predictions')
     # Required Parameters
     parser.add_argument('--labels_file', type=str, help='Location of test labels', default=None)
     parser.add_argument('--preds_file', type=str, help='Location of predictions', default=None)
@@ -82,4 +84,4 @@ if __name__ == '__main__':
     print('====Input Arguments====')
     print(json.dumps(vars(args), indent=2, sort_keys=True))
     print("=======================")
-    main(args)
+    main(args.labels_file, args.preds_file, args.metrics_output_file)
