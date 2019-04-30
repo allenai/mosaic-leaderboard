@@ -24,9 +24,9 @@ def score_submission(pred_labels, test_labels):
 
     qa_accuracy = np.mean((answers == test_labels['answer']))
 
-    print("Answer acc is {:.3f}".format(qa_accuracy))
+    print("Answer accuracy is {:.3f}".format(qa_accuracy))
 
-    # score rationales
+    # score rationales (explanations for the answers)
     rationales = pred_labels[
         [f'rationale_conditioned_on_a{i}_{j}' for i in range(4) for j in range(4)]].values.reshape(
         (-1, 4, 4))
@@ -36,14 +36,14 @@ def score_submission(pred_labels, test_labels):
 
     qa2r_accuracy = np.mean((rationales_conditioned_on_gt == test_labels['rationale']))
 
-    print("Rationale acc is {:.3f}".format(qa2r_accuracy))
+    print("Rationale accuracy is {:.3f}".format(qa2r_accuracy))
 
-    # Combine
+    # Compute whether both the answer and the rational are correct
     is_right = ((answers == test_labels['answer']) & (
                 rationales_conditioned_on_gt == test_labels['rationale']))
 
     q2ar_accuracy = np.mean(is_right)
-    print("Combined acc is {:.3f}".format(q2ar_accuracy))
+    print("Combined accuracy is {:.3f}".format(q2ar_accuracy))
     return qa_accuracy, qa2r_accuracy, q2ar_accuracy
 
 
