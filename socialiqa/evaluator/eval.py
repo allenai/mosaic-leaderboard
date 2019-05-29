@@ -30,14 +30,13 @@ def main(args):
     }
     with open(metrics_output_file, "w") as f:
         f.write(json.dumps(results))
-    f.close()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Evaluate SocialIQA predictions')
     # Required Parameters
-    parser.add_argument('--labels_file', type=str, help='Location of test labels', default=None)
+    parser.add_argument('--labels_file', type=str, help='Location of labels', default=None)
     parser.add_argument('--preds_file', type=str, help='Location of predictions', default=None)
     parser.add_argument('--metrics_output_file',
                         type=str,
