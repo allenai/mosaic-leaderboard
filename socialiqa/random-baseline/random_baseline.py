@@ -3,6 +3,7 @@ import json
 from typing import List
 import random
 
+
 # Parse the input file from JSONL to a list of dictionaries.
 def read_jsonl_lines(input_file: str) -> List[dict]:
     with open(input_file) as f:
