@@ -5,7 +5,7 @@ If you are building your own solver this example will show you how to parse the 
 
 ## Running this example locally
 
-To try out this random baseline, you must first download the [train and dev](https://storage.googleapis.com/ai2-mosaic/public/socialiqa/socialiqa-train-dev.zip) data.  Then you can run the random baseline with the following command.
+To try out this random baseline, you must first download the [train and dev](https://storage.googleapis.com/ai2-mosaic/public/hellaswag/hellaswag-train-dev.zip) data.  Then you can run the random baseline with the following command.
 
 ```
 python random_baseline.py --input-file train.jsonl --output-file predictions.lst

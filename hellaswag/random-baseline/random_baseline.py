@@ -15,7 +15,7 @@ def main(input_file, output_file):
     test_records = read_jsonl_lines(input_file)
 
     # Make predictions for each example in the test set.
-    predicted_answers = [random.choice(["1", "2"]) for r in  test_records]
+    predicted_answers = [random.choice(["0", "1", "2", "3"]) for r in  test_records]
 
     # Write the predictions to the output file.
     with open(output_file, "w") as f:
