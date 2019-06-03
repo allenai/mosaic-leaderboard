@@ -34,7 +34,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Evaluate PhysicalQA predictions')
+        description='Evaluate Physical IQA predictions')
     # Required Parameters
     parser.add_argument('--labels_file', type=str, help='Location of labels', default=None)
     parser.add_argument('--preds_file', type=str, help='Location of predictions', default=None)

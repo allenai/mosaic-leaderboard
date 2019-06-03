@@ -1,4 +1,4 @@
-# PhysicalIQA Random Baseline
+# Physical IQA Random Baseline
 
 This is an implementation of a random baseline for demonstration purposes.
 If you are building your own solver this example will show you how to parse the input file and write predictions in the correct format.
