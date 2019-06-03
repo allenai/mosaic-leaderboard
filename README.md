@@ -13,3 +13,6 @@ Leaderboard implementations for datasets produced by the Mosaic Team.
 1. [Social IQA: Commonsense Reasoning about Social Interactions](https://github.com/allenai/mosaic-leaderboard/tree/master/socialiqa)
     1. [Evaluator](https://github.com/allenai/mosaic-leaderboard/tree/master/socialiqa/evaluator)
     1. [Random Baseline](https://github.com/allenai/mosaic-leaderboard/tree/master/socialiqa/random-baseline)
+1. [Physical IQA: Commonsense Reasoning about Physical Interactions](https://github.com/allenai/mosaic-leaderboard/tree/master/physicaliqa)
+    1. [Evaluator](https://github.com/allenai/mosaic-leaderboard/tree/master/physicaliqa/evaluator)
+    1. [Random Baseline](https://github.com/allenai/mosaic-leaderboard/tree/master/physicaliqa/random-baseline)
