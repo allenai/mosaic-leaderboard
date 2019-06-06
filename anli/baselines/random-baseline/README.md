@@ -10,3 +10,16 @@ To try out this random baseline, you must first download either the [train](http
 ```
 python random_baseline.py --input-file train.jsonl --output-file predictions.lst
 ```
+
+## Submitting to Leaderboard
+
+1. Create a docker image
+```
+docker build -t alpha-nli-random-baseline .
+```
+2. Upload image to beaker
+```
+beaker image create --name alpha-nli-random-baseline alpha-nli-random-baseline
+```
+3. Navigate back to [Submission Creation Page](https://leaderboard.allenai.org/anli/submission/create).
+`alpha-nli-random-baseline` should be visible in the `Beaker Image` suggestions. 
