@@ -10,3 +10,17 @@ To try out this random baseline, you must first download the [train and dev](htt
 ```
 python random_baseline.py --input-file train.jsonl --output-file predictions.lst
 ```
+
+
+## Submitting to Leaderboard
+
+1. Create a docker image
+```
+docker build -t physicaliqa-random-baseline .
+```
+2. Upload image to beaker
+```
+beaker image create --name physicaliqa-random-baseline physicaliqa-random-baseline
+```
+3. Navigate back to [Submission Creation Page](https://leaderboard.allenai.org/physicaliqa/submission/create).
+`physicaliqa-random-baseline` should be visible in the `Beaker Image` suggestions. 
