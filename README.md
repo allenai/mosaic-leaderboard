@@ -1,5 +1,8 @@
 # mosaic-leaderboard
-Leaderboard implementations for datasets produced by the Mosaic Team.
+
+AI2's Mosaic Team has created benchmark datasets for various Commonsense Understanding tasks. To keep track of progress, each dataset is associated with a leaderboard linked here: https://leaderboard.allenai.org/
+
+This repository provides implementations for baselines and evaluation scripts for each dataset. 
 
 1. [αNLI: Abductive Natural Language Inference](https://github.com/allenai/mosaic-leaderboard/tree/master/anli)
     1. [Evaluator](https://github.com/allenai/mosaic-leaderboard/tree/master/anli/evaluator)
