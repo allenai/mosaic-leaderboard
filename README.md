@@ -19,3 +19,6 @@ This repository provides implementations for baselines and evaluation scripts fo
 1. [Physical IQA: Commonsense Reasoning about Physical Interactions](https://github.com/allenai/mosaic-leaderboard/tree/master/physicaliqa)
     1. [Evaluator](https://github.com/allenai/mosaic-leaderboard/tree/master/physicaliqa/evaluator)
     1. [Random Baseline](https://github.com/allenai/mosaic-leaderboard/tree/master/physicaliqa/random-baseline)
+1. [Cosmos QA: Machine Reading Comprehension with Contextual Commonsense Reasoning](https://github.com/allenai/mosaic-leaderboard/tree/master/cosmosqa)
+    1. [Evaluator](https://github.com/allenai/mosaic-leaderboard/tree/master/cosmosqa/evaluator)
+    1. [Random Baseline](https://github.com/allenai/mosaic-leaderboard/tree/master/cosmosqa/random-baseline)
