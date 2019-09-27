@@ -22,3 +22,7 @@ This repository provides implementations for baselines and evaluation scripts fo
 1. [Cosmos QA: Machine Reading Comprehension with Contextual Commonsense Reasoning](https://github.com/allenai/mosaic-leaderboard/tree/master/cosmosqa)
     1. [Evaluator](https://github.com/allenai/mosaic-leaderboard/tree/master/cosmosqa/evaluator)
     1. [Random Baseline](https://github.com/allenai/mosaic-leaderboard/tree/master/cosmosqa/random-baseline)
+1. [WinoGrande: An Adversarial Winograd Schema Challenge at Scale](https://github.com/allenai/mosaic-leaderboard/tree/master/winogrande)
+    1. [Evaluator](https://github.com/allenai/mosaic-leaderboard/tree/master/winogrande/evaluator)
+    1. [Random Baseline](https://github.com/allenai/mosaic-leaderboard/tree/master/winogrande/random-baseline)
+
