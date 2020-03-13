@@ -23,7 +23,7 @@ def main(args):
     pred_answers_list = list(zip(*pred_answers_list))
 
     training_split = ['xs', 's', 'm', 'l', 'xl']
-    training_sizes = [160, 640, 2558, 10234, 40938]
+    training_sizes = [160, 640, 2558, 10234, 40398]
     x = [math.log2(t) for t in training_sizes]
     x_diff = max(x)-min(x)
 
