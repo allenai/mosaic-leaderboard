@@ -11,7 +11,7 @@ def read_jsonl_lines(input_file: str) -> List[dict]:
 
 
 choices_by_question_type = {
-    "multiple choice": ["0", "1", "2", "3", "5"],
+    "multiple choice": ["0", "1", "2", "3", "4"],
     "true/false": ["0", "1"],
     "true/false/unknown": ["0", "1", "2"]
 }
