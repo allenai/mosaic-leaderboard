@@ -5,7 +5,7 @@ import statistics
 from typing import List
 from sklearn.metrics import accuracy_score, auc
 
-from data_processing import load_data_from_jsonl, load_predictions_from_jsonl
+from data_processing import load_question_answer_clusters_from_jsonl, load_predictions_from_jsonl
 from evaluation import multiple_evals, all_eval_funcs
 
 
@@ -18,7 +18,7 @@ def main(args):
     """Run all evaluation metrics on model outputs"""
 
     print(f"Using {similarity_function} similarity.", flush=True)
-    targets = load_data_from_jsonl(labels_file)
+    targets = load_question_answer_clusters_from_jsonl(labels_file)
     predictions = load_predictions_from_jsonl(preds_file)
     results = multiple_evals(
         eval_func_dict=all_eval_funcs[similarity_function],
@@ -26,10 +26,8 @@ def main(args):
         answers_dict=predictions,
     )
 
-    print(results)
     output_scores = {}
     for name, eval_details in results.items():
-        print(name)
         eval_score = statistics.mean(x.score for x in eval_details.values())
         output_scores[name] = eval_score
 
@@ -42,8 +40,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Evaluate ProtoQA predictions')
     # Required Parameters
-    parser.add_argument('--labels_file', type=str, help='Location of labels', default='/Users/ronanlb/ai2/mosaic/mosaic-leaderboard/mosaic-leaderboard/protoqa/evaluator/labels.jsonl')
-    parser.add_argument('--preds_file', type=str, help='Location of predictions', default='/Users/ronanlb/ai2/mosaic/mosaic-leaderboard/mosaic-leaderboard/protoqa/evaluator/predictions.jsonl')
+    #parser.add_argument('--labels_file', type=str, help='Location of labels',
+    #                    default='/Users/ronanlb/ai2/mosaic/mosaic-leaderboard/mosaic-leaderboard/protoqa/evaluator/labels2.jsonl')
+    parser.add_argument('--labels_file', type=str, help='Location of labels',
+                        default='/Users/ronanlb/ai2/protoqa-data/data/dev/dev.crowdsourced.jsonl')
+
+    #parser.add_argument('--preds_file', type=str, help='Location of predictions', default='/Users/ronanlb/ai2/mosaic/mosaic-leaderboard/mosaic-leaderboard/protoqa/evaluator/predictions_regular.jsonl')
+    parser.add_argument('--preds_file', type=str, help='Location of predictions', default='/Users/ronanlb/ai2/protoqa-data/data/dev/dev.predictions.human.jsonl')
     parser.add_argument('--metrics_output_file',
                         type=str,
                         help='Location of output metrics file',

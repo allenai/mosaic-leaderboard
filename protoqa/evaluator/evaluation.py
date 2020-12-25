@@ -1,10 +1,15 @@
-from data_processing import default_string_preprocessing
+from data_processing import QuestionAndAnswerClusters, default_string_preprocessing
 from scoring import *
 import statistics
+import numpy as np
+from functools import partial
+from typing import *
 
 
 def multiple_evals(
-    eval_func_dict: Dict[str, Callable], question_data: Dict, answers_dict: Dict
+    eval_func_dict: Dict[str, Callable],
+    question_data: Dict[str, QuestionAndAnswerClusters],
+    answers_dict: Dict[str, List[str]],
 ) -> Dict[str, Dict[str, float]]:
     eval_details = {}
     for name, eval_func in eval_func_dict.items():
@@ -21,7 +26,7 @@ def multiple_evals(
 
 def evaluate(
     evaluation_func: Callable,
-    question_data: Dict,
+    question_data: Dict[str, QuestionAndAnswerClusters],
     answers_dict: Dict[str, List[str]],
     data_preprocessing: Optional[Callable] = None,
 ) -> Dict[str, float]:
@@ -30,11 +35,11 @@ def evaluate(
         true_q = question_data[qid]
         if data_preprocessing is not None:
             true_q, pred_answers = data_preprocessing(true_q, answers_dict)
-        true_answers = true_q["answers-cleaned"].copy()
+        true_answers = true_q.answer_clusters.copy()
         scores[qid] = evaluation_func(
             pred_answers,
             true_answers,
-            question_string=true_q["normalized-question"],
+            question_string=true_q.question,
         )
     return scores
 
@@ -75,7 +80,7 @@ def general_eval(
         true_answers,
         question_string=question_string,
         score_func=score_func,
-        cluster_reduction_func=cluster_reduction_func,
+        cluster_reduction_func=cluster_reduction_func
     )
     if score_matrix_transformation is not None:
         score_matrix = score_matrix_transformation(score_matrix)

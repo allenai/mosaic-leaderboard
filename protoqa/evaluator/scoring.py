@@ -12,6 +12,24 @@ from nltk.corpus import stopwords
 from nltk.corpus import wordnet as wn
 from scipy.optimize import linear_sum_assignment
 
+__all__ = [
+    "all_pairs_scores",
+    "get_optimal_score",
+    "exact_match",
+    "longest_common_substring_score",
+    "longest_common_subsequence_score",
+    "wordnet_synsets_score",
+    "wordnet_partition_score",
+    "wordnet_score",
+    "wup_similarity_wrapper",
+    "wordnet_wup_synset_score",
+    "wordnet_wup_partition_score",
+    "wordnet_wup_score",
+    "cluster_score",
+    "scale_score_matrix_by_cluster_scores",
+    "limit_total_wrong",
+]
+
 nltk.download("stopwords")
 nltk.download("punkt")
 nltk.download("wordnet")
