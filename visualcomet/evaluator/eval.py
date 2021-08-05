@@ -175,6 +175,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--refs_file", type=str, required=True)
     parser.add_argument("--gens_file", type=str, required=True)
+    parser.add_argument("--output_file", type=str, required=True)
     parser.add_argument("--mode", type=str, default="inference")
 
     parser.add_argument("--diversity", action='store_true')
@@ -192,10 +193,10 @@ def main():
     output = compute_metric_inference(gens_list, refs_list,
                                       calculate_diversity=args.diversity, train_file=args.train_file)
 
-    write_name = args.gens_file.replace(".json", ".evaluate.json")
-    print("Saving to: {}".format(write_name))
-    with open(write_name, "w") as f:
+    print("Saving to: {}".format(args.output_file))
+    with open(args.output_file, "w") as f:
         json.dump(output, f)
+
 
 if __name__ == '__main__':
     main()
