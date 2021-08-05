@@ -1,0 +1,3 @@
+[submodule "visualcomet/coco-caption"]
+	path = visualcomet/evaluator/coco-caption
+	url = https://github.com/ruotianluo/coco-caption.git
