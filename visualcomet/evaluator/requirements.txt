@@ -1,0 +1,8 @@
+# data science and numerical computing
+numpy
+scipy
+scikit-learn
+ftfy==5.1
+tqdm
+pandas
+ipython
