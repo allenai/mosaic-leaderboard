@@ -74,6 +74,10 @@ def general_eval(
 ) -> EvalResult:
     if max_pred_answers is not None:
         pred_answers = pred_answers[:max_pred_answers]
+    else:
+        if max_incorrect is not None:
+            max_answers = len(true_answers) + max_incorrect
+            pred_answers = pred_answers[:max_answers]
     pred_answers = [string_preprocessing(pred_answer) for pred_answer in pred_answers]
     score_matrix = cluster_score_func(
         pred_answers,
